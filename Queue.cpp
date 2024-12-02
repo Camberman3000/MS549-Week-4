@@ -20,6 +20,7 @@ private:
 
 public:
     // Constructor
+    /********************************* Begin ChatGPT Code #3 **********************************************/
     Queue() : front(nullptr), rear(nullptr) {}
 
     // Destructor to free allocated memory
@@ -30,7 +31,7 @@ public:
             delete temp;
         }
     }
-
+    /********************************* end ChatGPT Code #3 **********************************************/
     // Enqueue operation
     void enqueue(int value) {
         QueueNode* newNode = new QueueNode(value);

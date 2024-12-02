@@ -17,6 +17,7 @@ private:
     StackNode* top; // Pointer to the top of the stack
 
 public:
+    /********************************* Begin ChatGPT Code #1 **********************************************/
     // Constructor
     Stack() : top(nullptr) {}
 
@@ -28,7 +29,7 @@ public:
             delete temp;
         }
     }
-
+    /********************************* end ChatGPT Code #1 **********************************************/
     // Push operation
     void push(int value) {
         StackNode* newNode = new StackNode(value);
@@ -36,7 +37,9 @@ public:
             top = newNode;
         }
         else {
+            /********************************* Begin ChatGPT Code #2 **********************************************/
             newNode->prev = top;
+            /********************************* end ChatGPT Code #2 **********************************************/
             top->next = newNode;
             top = newNode;
         }

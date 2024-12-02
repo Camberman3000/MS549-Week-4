@@ -3,7 +3,7 @@
    MS549
 
   Assignment 4.1: Project - Linked List implemented as a Stack and a Queue
-  References: I used ChatGPT to help me with the stack and queue code.
+  References: I used ChatGPT to help me with the stack and queue code - Updated to show where I needed help..
 */
 
 #include <chrono>
