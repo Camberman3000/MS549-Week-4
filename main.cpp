@@ -6,15 +6,11 @@
   References: I used ChatGPT to help me with the stack and queue code.
    */
 
-#include <iostream>
-#include <fstream>
-#include <sstream>
-#include <string>
-#include <random>
 #include <chrono>
-#include<vector>
+#include <iostream>
+#include <random>
 #include <wtypes.h>
-#include <winuser.h>
+
 #include "Queue.cpp"
 #include "Stack.cpp"
 
@@ -39,6 +35,9 @@ int main()
 		 
 	Queue q;
 	Stack s;
+	chrono::time_point<chrono::steady_clock> start;
+	
+	 
 
 	int choice = menu();// Show menu
 	while (choice != 5)
@@ -48,10 +47,12 @@ int main()
 			int n;
 			cout << "Choose how many random numbers to insert into the queue" << '\n' << '\n';
 			cin >> n;
+			start = chrono::high_resolution_clock::now();// Start high-res timer
 			q.enqueue(n);
 		} 
 		else if (choice == 2)// QUEUE: Delete all random numbers from the queue
 		{
+			start = chrono::high_resolution_clock::now();// Start high-res timer
 			q.dequeue();
 			cout << "Deleted all random numbers from the queue" << '\n' << '\n';
 
@@ -61,10 +62,12 @@ int main()
 			int n;
 			cout << "Choose how many random numbers to insert into the stack" << '\n' << '\n';
 			cin >> n;
+			start = chrono::high_resolution_clock::now();// Start high-res timer
 			s.push(n);
 		}
 		else if (choice == 4)// QUEUE: Delete 100 random numbers into the stack
 		{
+			start = chrono::high_resolution_clock::now();// Start high-res timer
 			s.pop();
 			cout << "Deleted all random numbers from the stack" << '\n' << '\n';
 
@@ -79,7 +82,22 @@ int main()
 		{
 			cout << "Invalid choice. Please try again." << '\n';
 		}
-
+		auto finish = chrono::high_resolution_clock::now();// Stop high-res timer
+		auto microseconds = chrono::duration_cast<chrono::microseconds>(finish - start);// Get duration
+		/*Display in micro-milli-seconds */		 
+		if (microseconds.count() < 1000)
+		{
+			cout << '\n' << '\n' << "Elapsed Time: " << microseconds.count() << " Microseconds" << '\n';
+		}1
+		else if (microseconds.count() < 1000000)
+		{
+			cout << '\n' << '\n' << "Elapsed Time: " << microseconds.count() << " Milliseconds" << '\n';
+		}
+		else
+		{
+			cout << '\n' << '\n' << "Elapsed Time: " << (microseconds.count() / 1000000) << " Seconds" << '\n';
+		}
+		
 		cout << '\n';
 		choice = menu();// Reopen menu
 		cin.ignore();// clear input buffer
