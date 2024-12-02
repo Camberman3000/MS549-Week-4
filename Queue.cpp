@@ -72,7 +72,7 @@ public:
             return;
         }
         QueueNode* temp = front;
-        cout << "Queue: ";
+        cout << "Queue Size: ";
         while (temp) {
             cout << temp->data << " ";
             temp = temp->next;

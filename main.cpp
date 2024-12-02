@@ -49,11 +49,13 @@ int main()
 			cin >> n;
 			start = chrono::high_resolution_clock::now();// Start high-res timer
 			q.enqueue(n);
+			q.display();
 		} 
 		else if (choice == 2)// QUEUE: Delete all random numbers from the queue
 		{
 			start = chrono::high_resolution_clock::now();// Start high-res timer
 			q.dequeue();
+			q.display();
 			cout << "Deleted all random numbers from the queue" << '\n' << '\n';
 
 		}
@@ -64,13 +66,14 @@ int main()
 			cin >> n;
 			start = chrono::high_resolution_clock::now();// Start high-res timer
 			s.push(n);
+			s.display();
 		}
 		else if (choice == 4)// QUEUE: Delete 100 random numbers into the stack
 		{
 			start = chrono::high_resolution_clock::now();// Start high-res timer
 			s.pop();
 			cout << "Deleted all random numbers from the stack" << '\n' << '\n';
-
+			s.display();
 		}		 
 		else if (cin.fail())
 		{
@@ -88,7 +91,7 @@ int main()
 		if (microseconds.count() < 1000)
 		{
 			cout << '\n' << '\n' << "Elapsed Time: " << microseconds.count() << " Microseconds" << '\n';
-		}1
+		}
 		else if (microseconds.count() < 1000000)
 		{
 			cout << '\n' << '\n' << "Elapsed Time: " << microseconds.count() << " Milliseconds" << '\n';
